@@ -1,10 +1,9 @@
-from itertools import combinations
-
-def solution(number):
+def solution(a, b, n):
     answer = 0
-    com = list(combinations(number,3)) 
 
-    for i in com:
-        if(sum(i)==0):
-            answer += 1
+    while n>= a:
+        m = n%a
+        n = (n//a)*b
+        answer += n
+        n += m
     return answer
