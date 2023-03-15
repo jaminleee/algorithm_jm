@@ -1,10 +1,14 @@
-def solution(nums):
-    answer = 0
-    hash = {}
-
-    for i in nums:
-        hash[i] = 1  #중복제거. len(hash) => 종류
-
-    if len(hash) > len(nums)//2 :
-        return len(nums)//2
-    return len(hash)
+def solution(s):
+    answer = True
+    stack=[]
+    for c in s:
+        if c=="(":
+            stack.append(c)
+        else:
+            if stack:
+                stack.pop()
+            else:
+                answer = False
+    if stack:
+        answer = False
+    return answer
